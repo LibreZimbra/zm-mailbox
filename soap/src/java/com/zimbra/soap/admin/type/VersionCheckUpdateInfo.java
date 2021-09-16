@@ -101,7 +101,6 @@ public class VersionCheckUpdateInfo {
     public void setShortVersion(String shortVersion) { this.shortVersion = shortVersion; }
     public void setRelease(String release) { this.release = release; }
     public void setVersion(String version) { this.version = version; }
-    public void setBuildType(String buildType) { this.buildType = buildType; }
     public void setPlatform(String platform) { this.platform = platform; }
     public String getType() { return type; }
     public Boolean getCritical() { return ZmBoolean.toBool(critical); }

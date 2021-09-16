@@ -28,9 +28,6 @@ import com.zimbra.cs.db.Versions;
 
 public final class BuildInfo {
 
-    public static final String TYPE_NETWORK = "NETWORK";
-    public static final String TYPE_FOSS = "FOSS";
-
     public static final String TYPE;     /* whether this is a FOSS or NETWORK installation */
     public static final String VERSION;
     public static final String RELEASE;
@@ -46,7 +43,7 @@ public final class BuildInfo {
 
     static {
         String version = "unknown";
-        String type = getType();
+        String type = "LIBRE";
         String release = "unknown";
         String date = "unknown";
         String host = "unknown";
@@ -79,17 +76,7 @@ public final class BuildInfo {
         MINORVERSION = minorversion;
         MICROVERSION = microversion;
         BUILDNUM = buildnum;
-        if (TYPE != null && TYPE.length() > 0) {
-            // e.g. 6.0.0_BETA2_1542.RHEL4_64 20090529191053 20090529-1912 NETWORK
-            FULL_VERSION = VERSION + " " + RELEASE + " " + DATE + " " + TYPE;
-        } else {
-            FULL_VERSION = VERSION + " " + RELEASE + " " + DATE;
-        }
-    }
-
-    private static String getType() {
-        File licenseBin = new File("/opt/zimbra/bin/zmlicense");
-        return licenseBin.exists() ? TYPE_NETWORK : TYPE_FOSS;
+        FULL_VERSION = VERSION + " " + RELEASE + " " + DATE;
     }
 
     /**
