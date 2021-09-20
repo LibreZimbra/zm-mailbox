@@ -45,8 +45,8 @@ public class GetVersionInfo extends AccountDocumentHandler {
             
         infoEl.addAttribute(AccountConstants.A_VERSION_INFO_VERSION, fullVersionInfo);
         infoEl.addAttribute(AccountConstants.A_VERSION_INFO_RELEASE, BuildInfo.RELEASE);
-        infoEl.addAttribute(AccountConstants.A_VERSION_INFO_DATE, BuildInfo.DATE);
-        infoEl.addAttribute(AccountConstants.A_VERSION_INFO_HOST, BuildInfo.HOST);
+        infoEl.addAttribute(AccountConstants.A_VERSION_INFO_DATE, "");
+        infoEl.addAttribute(AccountConstants.A_VERSION_INFO_HOST, "");
         return response;
     }
 

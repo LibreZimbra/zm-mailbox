@@ -230,22 +230,10 @@
             <not><isset property="${zimbra.buildinfo.relnum}"/></not>
           </condition>
 
-          <condition property="zimbra.buildinfo.release" value="${user.name}">
-            <not><isset property="${zimbra.buildinfo.release}"/></not>
-          </condition>
-
-          <condition property="zimbra.buildinfo.date" value="${DSTAMP}-${TSTAMP}">
-            <not><isset property="${zimbra.buildinfo.date}"/></not>
-          </condition>
-
-          <condition property="zimbra.buildinfo.host" value="${zimbra.server.hostname}">
-            <not><isset property="${zimbra.buildinfo.host}"/></not>
-          </condition>
-
           <property name="zimbra.buildinfo.microtag" value="${zimbra.buildinfo.microversion}_${zimbra.buildinfo.relclass}"/>
 
           <property name="zimbra.buildinfo.all"
-                    value="Version: ${zimbra.buildinfo.version}; Type: LIBRE; Release: ${zimbra.buildinfo.release}; Built: ${zimbra.buildinfo.date}; Host: ${zimbra.buildinfo.host}"/>
+                    value="Version: ${zimbra.buildinfo.version}; Type: LIBRE"/>
 
           <property name="dev.version" value="${zimbra.buildinfo.majorversion}.${zimbra.buildinfo.minorversion}.${zimbra.buildinfo.microversion}.${git.timestamp}"/>
           <property name="jar.file" value="${ant.project.name}-${dev.version}.jar"/>

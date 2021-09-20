@@ -2944,7 +2944,7 @@ public class ProxyConfGen
         mConfVars.put("mail.authwait", new ProxyConfVar("mail.authwait", Provisioning.A_zimbraReverseProxyAuthWaitInterval, new Long(10000), ProxyConfValueType.TIME, ProxyConfOverride.CONFIG, "Time delay (ms) after which an incorrect POP/IMAP login attempt will be rejected"));
         mConfVars.put("mail.pop3capa", new Pop3CapaVar());
         mConfVars.put("mail.imapcapa", new ImapCapaVar());
-        mConfVars.put("mail.imapid", new ProxyConfVar("mail.imapid", null, "\"NAME\" \"Zimbra\" \"VERSION\" \"" + BuildInfo.VERSION + "\" \"RELEASE\" \"" + BuildInfo.RELEASE + "\"", ProxyConfValueType.STRING, ProxyConfOverride.CONFIG, "NGINX response to IMAP ID command"));
+        mConfVars.put("mail.imapid", new ProxyConfVar("mail.imapid", null, "\"NAME\" \"Zimbra\" \"VERSION\" \"" + BuildInfo.VERSION + "\"", ProxyConfValueType.STRING, ProxyConfOverride.CONFIG, "NGINX response to IMAP ID command"));
         mConfVars.put("mail.defaultrealm", new ProxyConfVar("mail.defaultrealm", Provisioning.A_zimbraReverseProxyDefaultRealm, "", ProxyConfValueType.STRING, ProxyConfOverride.SERVER, "Default SASL realm used in case Kerberos principal does not contain realm information"));
         mConfVars.put("mail.sasl_host_from_ip", new SaslHostFromIPVar());
         mConfVars.put("mail.saslapp", new ProxyConfVar("mail.saslapp", null, "nginx", ProxyConfValueType.STRING, ProxyConfOverride.CONFIG, "Application name used by NGINX to initialize SASL authentication"));

@@ -55,9 +55,6 @@ public final class BuildInfo {
         try {
             Class<?> clz = Class.forName("com.zimbra.cs.util.BuildInfoGenerated");
             version = (String) clz.getField("VERSION").get(null);
-            release = (String) clz.getField("RELEASE").get(null);
-            date = (String) clz.getField("DATE").get(null);
-            host = (String) clz.getField("HOST").get(null);
             majorversion = (String) clz.getField("MAJORVERSION").get(null);
             minorversion = (String) clz.getField("MINORVERSION").get(null);
             microversion = (String) clz.getField("MICROVERSION").get(null);
@@ -76,7 +73,7 @@ public final class BuildInfo {
         MINORVERSION = minorversion;
         MICROVERSION = microversion;
         BUILDNUM = buildnum;
-        FULL_VERSION = VERSION + " " + RELEASE + " " + DATE;
+        FULL_VERSION = VERSION;
     }
 
     /**
@@ -111,9 +108,6 @@ public final class BuildInfo {
 
     public static void main(String[] args) {
         System.out.println("Version: " + VERSION);
-        System.out.println("Release: " + RELEASE);
-        System.out.println("Build Date: " + DATE);
-        System.out.println("Build Host: " + HOST);
         System.out.println("Full Version: " + FULL_VERSION);
         System.out.println("DB Version: " + Versions.DB_VERSION);
         System.out.println("Index Version: " + Versions.INDEX_VERSION);

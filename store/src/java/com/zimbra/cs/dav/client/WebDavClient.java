@@ -352,7 +352,7 @@ public class WebDavClient {
     }
 
     public void setAppName(String app) {
-        mUserAgent = "Zimbra " + app + "/" + BuildInfo.VERSION + " (" + BuildInfo.DATE + ")";
+        mUserAgent = "Zimbra " + app + "/" + BuildInfo.VERSION;
     }
 
     protected String mUserAgent;

@@ -143,8 +143,7 @@ public abstract class ImapHandler {
     private static final long MAXIMUM_IDLE_PROCESSING_MILLIS = 15 * Constants.MILLIS_PER_SECOND;
 
     // ID response parameters
-    private static final String ID_PARAMS = "\"NAME\" \"Zimbra\" \"VERSION\" \"" + BuildInfo.VERSION +
-        "\" \"RELEASE\" \"" + BuildInfo.RELEASE + "\"";
+    private static final String ID_PARAMS = "\"NAME\" \"Zimbra\" \"VERSION\" \"" + BuildInfo.VERSION + "\"";
 
     private static final String IMAP_READ_RIGHTS   = "lr";
     private static final String IMAP_WRITE_RIGHTS  = "sw";

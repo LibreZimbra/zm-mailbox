@@ -44,8 +44,6 @@ public class GetVersionInfo extends AdminDocumentHandler {
         }
         versionInfo.setVersion(fullVersionInfo);
         versionInfo.setRelease(BuildInfo.RELEASE);
-        versionInfo.setBuildDate(BuildInfo.DATE);
-        versionInfo.setHost(BuildInfo.HOST);
 
         versionInfo.setMajorVersion(BuildInfo.MAJORVERSION);
         versionInfo.setMinorVersion(BuildInfo.MINORVERSION);

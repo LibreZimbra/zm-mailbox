@@ -119,7 +119,6 @@
         <param name="--output-dir" value="${soapdocs.output.dir}"/>
         <param name="--apidesc-json" value="${soapdocs.apidesc.file}"/>
         <param name="--build-version" value="${zimbra.buildinfo.version}"/>
-        <param name="--build-date" value="${zimbra.buildinfo.date}"/>
       </doclet>
       <packageset dir="${src.java.dir}" defaultexcludes="yes">
         <include name="com/zimbra/soap/*/message/**"/>

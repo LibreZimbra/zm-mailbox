@@ -144,10 +144,7 @@ public final class Zimbra {
     }
 
     private static void logVersionAndSysInfo() {
-        ZimbraLog.misc.info("version=" + BuildInfo.VERSION +
-                " release=" + BuildInfo.RELEASE +
-                " builddate=" + BuildInfo.DATE +
-                " buildhost=" + BuildInfo.HOST);
+        ZimbraLog.misc.info("version=" + BuildInfo.VERSION);
 
         ZimbraLog.misc.info("LANG environment is set to: " + System.getenv("LANG"));
 
