@@ -56,7 +56,7 @@
     <!-- Code added to parse regex provided in version zimbra.buildinfo.version -->
     <taskdef resource="net/sf/antcontrib/antlib.xml">
         <classpath>
-		<pathelement location="${user.home}/.zcs-deps/ant-contrib-1.0b1.jar"/>
+            <pathelement location="${basedir}/../../tmp/.zcs-deps/ant-contrib-1.0b1.jar"/>
         </classpath>
     </taskdef>
     <propertyregex property="zimbra.buildinfo.majorversion"
