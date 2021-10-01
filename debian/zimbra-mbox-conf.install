@@ -1,0 +1,7 @@
+/opt/zimbra/conf/globs2
+/opt/zimbra/conf/magic
+/opt/zimbra/conf/magic.zimbra
+/opt/zimbra/conf/globs2.zimbra
+/opt/zimbra/conf/spnego_java_options.in
+/opt/zimbra/conf/zimbra-contact-fields.xml
+/opt/zimbra/conf/common-passwords.txt

@@ -1,0 +1,7 @@
+/opt/zimbra/conf/milter.log4j.properties
+/opt/zimbra/conf/mta_milter_options.in
+/opt/zimbra/conf/datasource.xml
+/opt/zimbra/conf/localconfig.xml
+/opt/zimbra/conf/log4j.properties.in
+/opt/zimbra/conf/stats.conf.in
+/opt/zimbra/conf/unbound.conf.in

@@ -1,0 +1,117 @@
+Source: zimbra-mailbox
+Section: mail
+Priority: optional
+Build-Depends: debhelper (>=9), ant, ant-contrib, git, default-jdk, ivy,
+  zimbra-common-core-libs, zimbra-mbox-store-libs
+Standards-Version: 3.9.6
+Maintainer: Enrico Weigelt, metux IT consult <info@metux.net>
+Uploaders: Enrico Weigelt, metux IT consult <info@metux.net>
+
+Package: zimbra-common-mbox-conf
+Section: mail
+Priority: optional
+Architecture: any
+Description: LibreZimbra mailboxd core
+
+Package: zimbra-mbox-service
+Section: mail
+Priority: optional
+Architecture: any
+Description: LibreZimbra mbox service
+Depends: zimbra-mbox-war, zimbra-mbox-conf, zimbra-common-core-jar,
+  zimbra-common-mbox-conf, zimbra-common-mbox-db,
+  zimbra-common-mbox-conf-msgs, zimbra-common-mbox-conf-rights,
+  zimbra-common-mbox-conf-attrs, zimbra-common-mbox-docs,
+
+Package: zimbra-mbox-war
+Section: mail
+Priority: optional
+Architecture: any
+Description: LibreZimbra Mailbox Service War
+
+Package: zimbra-mbox-conf
+Section: mail
+Priority: optional
+Architecture: any
+Description: LibreZimbra Mailbox Service Configuration
+
+Package: zimbra-common-mbox-db
+Section: mail
+Priority: optional
+Architecture: any
+Description: LibreZimbra Core Mailbox DB Files
+
+Package: zimbra-common-mbox-conf-msgs
+Section: mail
+Priority: optional
+Architecture: all
+Description: LibreZimbra Core Mailbox Message Locale Files
+
+Package: zimbra-common-mbox-conf-rights
+Section: mail
+Priority: optional
+Architecture: all
+Description: LibreZimbra Core Mailbox Rights Configuration
+
+Package: zimbra-common-mbox-conf-attrs
+Section: mail
+Priority: optional
+Architecture: all
+Description: LibreZimbra Core Mailbox Attributes Configuration
+
+Package: zimbra-common-mbox-docs
+Section: mail
+Priority: optional
+Architecture: all
+Description: LibreZimbra Core Mailbox Docs
+
+Package: zimbra-core-jar-common
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-native
+Description: LibreZimbra Core Jars
+
+Package: zimbra-core-jar-client
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-common, zimbra-core-jar-soap
+Description: LibreZimbra Core Jars
+
+Package: zimbra-core-jar-native
+Section: mail
+Priority: optional
+Architecture: all
+Description: LibreZimbra Core Jars
+
+Package: zimbra-core-jar-soap
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-common
+Description: LibreZimbra Core Jars
+
+Package: zimbra-core-jar-store
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-common, zimbra-core-jar-soap, zimbra-core-jar-native,
+  zimbra-core-jar-client, zimbra-common-core-libs
+Description: LibreZimbra Core Jars
+
+Package: zimbra-common-core-jar
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-common, zimbra-core-jar-native, zimbra-core-jar-client,
+  zimbra-core-jar-soap, zimbra-core-jar-store
+Description: LibreZimbra Core Jars
+
+Package: zimbra-common-core-dev
+Section: mail
+Priority: optional
+Architecture: any
+Depends: zimbra-core-jar-common, zimbra-core-jar-native, zimbra-core-jar-client,
+  zimbra-core-jar-soap, zimbra-core-jar-store
+Description: LibreZimbra Core Jars development files
