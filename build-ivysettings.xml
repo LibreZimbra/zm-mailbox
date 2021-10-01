@@ -11,10 +11,20 @@
   <resolvers>
     <chain name="chain-resolver" returnFirst="true">
       <filesystem name="local">
+        <!-- from local build user -->
         <artifact pattern= "${dev.home}/.zcs-deps/[organisation]/[module]/[module]-[revision].[ext]" />
         <artifact pattern= "${dev.home}/.zcs-deps/[organisation]-[revision].[ext]" />
         <artifact pattern= "${dev.home}/.zcs-deps/[organisation].[ext]" />
 
+        <!-- from existing installation (chroot/container build) -->
+        <artifact pattern="/opt/zimbra/lib/jars/[module]-[revision].[ext]" />
+        <artifact pattern="/opt/zimbra/lib/jars/[module].[ext]" />
+
+        <!-- from locally built -->
+        <artifact pattern="${basedir}/../native/build/dist/[module].[ext]" />
+        <artifact pattern="${basedir}/../common/build/dist/[module].[ext]" />
+        <artifact pattern="${basedir}/../soap/build/dist/[module].[ext]" />
+        <artifact pattern="${basedir}/../client/build/dist/[module].[ext]" />
       </filesystem>
        <url name="maven-https-org">
         <artifact pattern="https://repo1.maven.org/maven2/[organization]/[module]/[revision]/[artifact]-[revision].[ext]" />
