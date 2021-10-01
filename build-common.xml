@@ -140,6 +140,9 @@
       <pathelement location="${build.classes.dir}" />
       <pathelement location="${test.classes.dir}" />
       <pathelement location="${msgs.dir}" />
+      <fileset dir="/opt/zimbra/lib/jars" erroronmissingdir="false">
+        <include name="**/*.jar" />
+      </fileset>
     </path>
 
     <!-- Platform -->
