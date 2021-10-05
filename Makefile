@@ -28,6 +28,10 @@ install:
 	$(call install_conf, store-conf/conf/datasource.xml)
 	$(call install_conf, store-conf/conf/stats.conf.in)
 	$(call install_conf, store/conf/unbound.conf.in)
+	$(call install_conf, store-conf/conf/imapd.log4j.properties)
+	$(call install_conf, store-conf/conf/owasp_policy.xml)
+	$(call install_conf, store-conf/conf/antisamy.xml)
+	$(call install_conf, store-conf/conf/custom-mimetypes.xml)
 	cp store-conf/conf/localconfig.xml.production         $(INSTALL_DIR)/conf/localconfig.xml
 	cp store-conf/conf/log4j.properties.production        $(INSTALL_DIR)/conf/log4j.properties.in
 

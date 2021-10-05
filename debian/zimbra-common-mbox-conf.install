@@ -5,3 +5,7 @@
 /opt/zimbra/conf/log4j.properties.in
 /opt/zimbra/conf/stats.conf.in
 /opt/zimbra/conf/unbound.conf.in
+/opt/zimbra/conf/imapd.log4j.properties
+/opt/zimbra/conf/owasp_policy.xml
+/opt/zimbra/conf/antisamy.xml
+/opt/zimbra/conf/custom-mimetypes.xml
