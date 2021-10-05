@@ -138,5 +138,14 @@
   <dependency org="org.tukaani" name="xz" rev="1.9"/>
   <dependency org="com.drewnoakes" name="metadata-extractor" rev="2.16.0"/>
   <dependency org="com.adobe.xmp" name="xmpcore" rev="6.1.11"/>
+  <dependency org="javax.activation" name="activation" rev="1.1.1"/>
+  <dependency org="javax.annotation" name="javax.annotation-api" rev="1.2" />
+  <dependency org="javax.jws" name="jsr181-api" rev="1.0-MR1"/>
+  <dependency org="javax.xml.bind" name="jaxb-api" rev="2.3.1"/>
+  <dependency org="javax.ws.rs" name="javax.ws.rs-api" rev="2.0-m10"/>
+  <dependency org="javax.ws.rs" name="jsr311-api" rev="1.1.1"/>
+  <dependency org="javax.xml.ws" name="jaxws-api" rev="2.3.1"/>
+  <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.10.1"/>
+  <dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.10.1"/>
  </dependencies>
 </ivy-module>
