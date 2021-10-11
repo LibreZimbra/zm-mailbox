@@ -26,30 +26,6 @@
 #include "com_zimbra_znative_Process.h"
 #include "zjniutil.h"
 
-JNIEXPORT jint JNICALL
-Java_com_zimbra_znative_Process_getuid0(JNIEnv *env, jclass clz)
-{
-    return getuid();
-}
-
-JNIEXPORT jint JNICALL
-Java_com_zimbra_znative_Process_geteuid0(JNIEnv *env, jclass clz)
-{
-    return geteuid();
-}
-
-JNIEXPORT jint JNICALL
-Java_com_zimbra_znative_Process_getgid0(JNIEnv *env, jclass clz)
-{
-    return getgid();
-}
-
-JNIEXPORT jint JNICALL
-Java_com_zimbra_znative_Process_getegid0(JNIEnv *env, jclass clz)
-{
-    return getegid();
-}
-
 static void
 SetPrivileges(JNIEnv *env, const char *username, uid_t uid, gid_t gid)
 {

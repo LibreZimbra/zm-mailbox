@@ -38,10 +38,6 @@ public class ProcessTest {
         
         
         System.out.println("Before: ");
-        System.out.println("  uid="  + Process.getuid());
-        System.out.println("  euid=" + Process.geteuid());
-        System.out.println("  gid="  + Process.getgid());
-        System.out.println("  egid=" + Process.getegid());
         System.out.println("  creating " + beforeFile);
         try {
             new File(beforeFile).createNewFile();
@@ -52,10 +48,6 @@ public class ProcessTest {
         Process.setPrivileges(userName, uid, gid);
 
         System.out.println("After: ");
-        System.out.println("  uid="  + Process.getuid());
-        System.out.println("  euid=" + Process.geteuid());
-        System.out.println("  gid="  + Process.getgid());
-        System.out.println("  egid=" + Process.getegid());
         System.out.println("  creating " + afterFile);
         try {
             new File(afterFile).createNewFile();

@@ -33,7 +33,6 @@ import com.zimbra.common.net.SocketFactories;
 import com.zimbra.cs.util.Zimbra;
 import com.zimbra.common.localconfig.LC;
 import com.zimbra.znative.IO;
-import com.zimbra.znative.Process;
 import com.zimbra.znative.Util;
 
 /**
@@ -45,22 +44,6 @@ public class FirstServlet extends HttpServlet {
 
     public void init() {
     	try {
-    	    System.err.println("Zimbra server process is running as uid=" + Process.getuid() + " euid=" + Process.geteuid() + " gid=" + Process.getgid() + " egid=" + Process.getegid());
-
-            if (Process.getuid() == 0) {
-                Util.halt("can not start server with uid of 0");
-            }
-            if (Process.geteuid() == 0) {
-                Util.halt("can not start server with effective uid of 0");
-            }
-            
-            if (Process.getgid() == 0) {
-                Util.halt("can not start server with gid of 0");
-            }
-            if (Process.getegid() == 0) {
-                Util.halt("can not start server with effective gid of 0");
-            }
-
             System.setProperty("javax.net.ssl.keyStore", LC.mailboxd_keystore.value());
             System.setProperty("javax.net.ssl.keyStorePassword", LC.mailboxd_keystore_password.value());
             System.setProperty("javax.net.ssl.trustStorePassword", LC.mailboxd_truststore_password.value());
