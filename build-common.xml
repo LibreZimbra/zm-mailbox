@@ -571,9 +571,9 @@
     </target>
 
     <target name="clean-cache" description="Delete ivy cache">
-        <delete dir="${dev.home}/.ivy2/cache/zimbra/${ant.project.name}"/>
-        <delete dir="${dev.home}/.zcs-deps/zimbra/${ant.project.name}"/>
-        <delete>
+        <delete dir="${dev.home}/.ivy2/cache/zimbra/${ant.project.name}" failonerror="false"/>
+        <delete dir="${dev.home}/.zcs-deps/zimbra/${ant.project.name}" failonerror="false"/>
+        <delete failonerror="false">
             <fileset dir="${dev.home}/.ivy2/cache" includes="*${ant.project.name}*"/>
         </delete>
     </target>
