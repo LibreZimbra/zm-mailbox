@@ -20,20 +20,13 @@ CC := gcc
 
 all: FORCE
 	$(MAKE) $(BUILD)/libzimbra-native.$(SHARED_EXT)
-	$(MAKE) $(BUILD)/libsetuid.$(SHARED_EXT)
 
 FORCE: ;
 
 $(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/Process.o $(BUILD)/ProcessorUsage.o $(BUILD)/ResourceUsage.o $(BUILD)/Util.o $(BUILD)/zjniutil.o $(BUILD)/$(PROXY_INFO).o
 	$(CC) $(CF) $(LIB_OPTS) $(SHARED) -o $@ $^
 
-$(BUILD)/libsetuid.$(SHARED_EXT): $(BUILD)/org_mortbay_setuid_SetUID.o
-	$(CC) $(CF) $(LIB_OPTS_SETUID) $(SHARED) -o $@ $^
-
 $(BUILD)/%.o: $(SRC)/native/%.c
-	$(CC) $(CF) $(MACDEF) $(JAVAINC) -I$(BUILD) -Wall -Wmissing-prototypes -c -o $@ $<
-
-$(BUILD)/%.o: $(SRC)/jetty-setuid/%.c
 	$(CC) $(CF) $(MACDEF) $(JAVAINC) -I$(BUILD) -Wall -Wmissing-prototypes -c -o $@ $<
 
 $(BUILD)/Process.o: $(SRC)/native/Process.c $(BUILD)/com_zimbra_znative_Process.h $(SRC)/native/zjniutil.h
@@ -47,8 +40,6 @@ $(BUILD)/Util.o: $(SRC)/native/Util.c $(BUILD)/com_zimbra_znative_Util.h $(SRC)/
 $(BUILD)/zjniutil.o: $(SRC)/native/zjniutil.c $(SRC)/native/zjniutil.h
 
 $(BUILD)/IO.o: $(SRC)/native/IO.c $(BUILD)/com_zimbra_znative_IO.h $(SRC)/native/zjniutil.h
-
-$(BUILD)/org_mortbay_setuid_SetUID.o: $(SRC)/jetty-setuid/org_mortbay_setuid_SetUID.c $(SRC)/jetty-setuid/org_mortbay_setuid_SetUID.h
 
 $(BUILD)/$(PROXY_INFO).o: $(SRC)/native/$(PROXY_INFO).c $(BUILD)/com_zimbra_znative_ProxyInfo.h $(SRC)/native/zjniutil.h
 
