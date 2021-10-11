@@ -22,7 +22,7 @@ all: FORCE
 
 FORCE: ;
 
-$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/Process.o $(BUILD)/ResourceUsage.o $(BUILD)/Util.o $(BUILD)/zjniutil.o
+$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/Process.o $(BUILD)/ResourceUsage.o $(BUILD)/zjniutil.o
 	$(CC) $(CF) $(LIB_OPTS) $(SHARED) -o $@ $^
 
 $(BUILD)/%.o: $(SRC)/native/%.c
@@ -31,8 +31,6 @@ $(BUILD)/%.o: $(SRC)/native/%.c
 $(BUILD)/Process.o: $(SRC)/native/Process.c $(BUILD)/com_zimbra_znative_Process.h $(SRC)/native/zjniutil.h
 
 $(BUILD)/ResourceUsage.o: $(SRC)/native/ResourceUsage.c $(BUILD)/com_zimbra_znative_ResourceUsage.h $(SRC)/native/zjniutil.h
-
-$(BUILD)/Util.o: $(SRC)/native/Util.c $(BUILD)/com_zimbra_znative_Util.h $(SRC)/native/zjniutil.h
 
 $(BUILD)/zjniutil.o: $(SRC)/native/zjniutil.c $(SRC)/native/zjniutil.h
 

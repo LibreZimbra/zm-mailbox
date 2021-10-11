@@ -24,8 +24,6 @@ public final class Util {
 
     private static final boolean mHaveNativeCode;
 
-    public static final long TICKS_PER_SECOND;
-
     public static boolean loadLibrary() {
         if (mHaveNativeCode) {
             return mHaveNativeCode;
@@ -64,14 +62,7 @@ public final class Util {
 
     static {
         mHaveNativeCode = loadLibrary();
-        if (mHaveNativeCode) {
-            TICKS_PER_SECOND = getTicksPerSecond0();
-        } else {
-            TICKS_PER_SECOND = 1;
-        }
     }
-
-    private static native long getTicksPerSecond0();
 
     public static boolean haveNativeCode() {
         return mHaveNativeCode;
