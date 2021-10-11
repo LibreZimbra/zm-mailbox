@@ -54,13 +54,6 @@ public class TestSocks extends TestCase {
     }
 
     public void testSystemProxy() throws Exception {
-        ProxySelector ps = ProxySelectors.nativeProxySelector();
-        assertNotNull(ps);
-        List<Proxy> proxies = ps.select(new URI("socket://www.vmware.com"));
-        assertEquals(1, proxies.size());
-        Proxy proxy = proxies.get(0);
-        assertEquals(Proxy.Type.SOCKS, proxy.type());
-        assertEquals(PROXY_ADDR, proxy.address());
     }
 
     public void testHttpProxy() throws Exception {

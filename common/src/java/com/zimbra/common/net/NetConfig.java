@@ -26,7 +26,6 @@ public final class NetConfig {
     private boolean allowUntrustedCerts;
     private boolean allowMismatchedCerts;
     private boolean allowAcceptUntrustedCerts;
-    private boolean useNativeProxySelector;
 
     private static NetConfig INSTANCE = new NetConfig();
 
@@ -39,7 +38,6 @@ public final class NetConfig {
         allowUntrustedCerts = LC.ssl_allow_untrusted_certs.booleanValue();
         allowMismatchedCerts = LC.ssl_allow_mismatched_certs.booleanValue();
         allowAcceptUntrustedCerts = LC.ssl_allow_accept_untrusted_certs.booleanValue();
-        useNativeProxySelector = LC.client_use_native_proxy_selector.booleanValue();
     }
 
     public boolean isSocksEnabled() {
@@ -75,15 +73,6 @@ public final class NetConfig {
 
     public NetConfig setAllowAcceptUntrustedCerts(boolean allowAcceptUntrustedCerts) {
         this.allowAcceptUntrustedCerts = allowAcceptUntrustedCerts;
-        return this;
-    }
-
-    public boolean isUseNativeProxySelector() {
-        return useNativeProxySelector;
-    }
-
-    public NetConfig setUseNativeProxySelector(boolean useNativeProxySelector) {
-        this.useNativeProxySelector = useNativeProxySelector;
         return this;
     }
 }

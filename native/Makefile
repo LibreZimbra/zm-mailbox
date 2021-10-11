@@ -15,7 +15,6 @@ JAVAINC := -I$(JAVA_HOME_)/include -I$(JAVA_HOME_)/include/linux
 SHARED_EXT := so
 PUSHED_EXT := so.Linux.i386
 CF := -fPIC -g
-PROXY_INFO := DefaultProxyInfo
 CC := gcc
 
 all: FORCE
@@ -23,15 +22,13 @@ all: FORCE
 
 FORCE: ;
 
-$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/Process.o $(BUILD)/ProcessorUsage.o $(BUILD)/ResourceUsage.o $(BUILD)/Util.o $(BUILD)/zjniutil.o $(BUILD)/$(PROXY_INFO).o
+$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/Process.o $(BUILD)/ResourceUsage.o $(BUILD)/Util.o $(BUILD)/zjniutil.o
 	$(CC) $(CF) $(LIB_OPTS) $(SHARED) -o $@ $^
 
 $(BUILD)/%.o: $(SRC)/native/%.c
 	$(CC) $(CF) $(MACDEF) $(JAVAINC) -I$(BUILD) -Wall -Wmissing-prototypes -c -o $@ $<
 
 $(BUILD)/Process.o: $(SRC)/native/Process.c $(BUILD)/com_zimbra_znative_Process.h $(SRC)/native/zjniutil.h
-
-$(BUILD)/ProcessorUsage.o: $(SRC)/native/ProcessorUsage.c $(BUILD)/com_zimbra_znative_ProcessorUsage.h $(SRC)/native/zjniutil.h
 
 $(BUILD)/ResourceUsage.o: $(SRC)/native/ResourceUsage.c $(BUILD)/com_zimbra_znative_ResourceUsage.h $(SRC)/native/zjniutil.h
 
@@ -40,8 +37,6 @@ $(BUILD)/Util.o: $(SRC)/native/Util.c $(BUILD)/com_zimbra_znative_Util.h $(SRC)/
 $(BUILD)/zjniutil.o: $(SRC)/native/zjniutil.c $(SRC)/native/zjniutil.h
 
 $(BUILD)/IO.o: $(SRC)/native/IO.c $(BUILD)/com_zimbra_znative_IO.h $(SRC)/native/zjniutil.h
-
-$(BUILD)/$(PROXY_INFO).o: $(SRC)/native/$(PROXY_INFO).c $(BUILD)/com_zimbra_znative_ProxyInfo.h $(SRC)/native/zjniutil.h
 
 #
 # Hack to copy to destination for use on incremental builds on linux / mac dev environments.

@@ -29,26 +29,17 @@ import java.util.List;
 
 import com.zimbra.common.localconfig.LC;
 import com.zimbra.common.util.ZimbraLog;
-import com.zimbra.znative.ProxyInfo;
-import com.zimbra.znative.Util;
 
 /**
  * Factory class for various ProxySelector types.
  */
 public final class ProxySelectors {
     private static final ProxySelector systemProxySelector;
-    private static final ProxySelector nativeProxySelector;
     private static ProxySelector defaultProxySelector;
 
     static {
         systemProxySelector = ProxySelector.getDefault();
-        if (useNativeProxySelector()) {
-            nativeProxySelector = new NativeProxySelector();
-            defaultProxySelector = nativeProxySelector;
-        } else {
-            nativeProxySelector = null;
-            defaultProxySelector = new CustomProxySelector(systemProxySelector);
-        }
+        defaultProxySelector = new CustomProxySelector(systemProxySelector);
         String className = LC.zimbra_class_customproxyselector.value();
         if (className != null && !className.equals("")) {
             try {
@@ -59,11 +50,6 @@ public final class ProxySelectors {
                 ZimbraLog.net.error("could not instantiate ConditionalProxySelector interface of class '" + className + "'; defaulting to system proxy settings", e);
             }
         }
-    }
-
-    private static boolean useNativeProxySelector() {
-        return NetConfig.getInstance().isUseNativeProxySelector() &&
-               Util.haveNativeCode() && ProxyInfo.isSupported();
     }
 
     /**
@@ -85,15 +71,6 @@ public final class ProxySelectors {
     }
 
     /**
-     * Returns the native ProxySelector if available, otherwise returns null.
-     *
-     * @return the native ProxySelector or null if not available
-     */
-    public static ProxySelector nativeProxySelector() {
-        return nativeProxySelector;
-    }
-
-    /**
      * Returns a "dummy" ProxySelector whose select method always returns
      * a DIRECT connection. Used for testing.
      *
@@ -109,47 +86,6 @@ public final class ProxySelectors {
                 // Do nothing...
             }
         };
-    }
-
-    /*
-     * Native ProxySelector implementation that uses native code to workaround
-     * issues with OS/X's default system ProxySelector. This implementation
-     * correctly handles dynamic changes to system proxy settings.
-     */
-    private static class NativeProxySelector extends ProxySelector {
-        public List<Proxy> select(URI uri) {
-            List<Proxy> proxies = new ArrayList<Proxy>();
-            for (ProxyInfo pi : ProxyInfo.getProxyInfo(uri.toString())) {
-                Proxy proxy = getProxy(pi);
-                if (proxy != null) {
-                    proxies.add(proxy);
-                }
-            }
-            if (proxies.isEmpty()) {
-                proxies.add(Proxy.NO_PROXY);
-            }
-            return proxies;
-        }
-
-        public void connectFailed(URI uri, SocketAddress sa, IOException e) {
-            // Do nothing...
-        }
-    }
-
-    private static Proxy getProxy(ProxyInfo pi) {
-        String host = pi.getHost();
-        int port = pi.getPort();
-        if (host != null && port > 0) {
-            switch (pi.getType()) {
-            case HTTP: case HTTPS:
-                return new Proxy(Proxy.Type.HTTP, saddr(host, port));
-            case SOCKS:
-                return new Proxy(Proxy.Type.SOCKS, saddr(host, port));
-            case NONE:
-                return Proxy.NO_PROXY;
-            }
-        }
-        return null;
     }
 
     /*
