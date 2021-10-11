@@ -22,13 +22,11 @@ all: FORCE
 
 FORCE: ;
 
-$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/ResourceUsage.o $(BUILD)/zjniutil.o
+$(BUILD)/libzimbra-native.$(SHARED_EXT): $(BUILD)/IO.o $(BUILD)/zjniutil.o
 	$(CC) $(CF) $(LIB_OPTS) $(SHARED) -o $@ $^
 
 $(BUILD)/%.o: $(SRC)/native/%.c
 	$(CC) $(CF) $(MACDEF) $(JAVAINC) -I$(BUILD) -Wall -Wmissing-prototypes -c -o $@ $<
-
-$(BUILD)/ResourceUsage.o: $(SRC)/native/ResourceUsage.c $(BUILD)/com_zimbra_znative_ResourceUsage.h $(SRC)/native/zjniutil.h
 
 $(BUILD)/zjniutil.o: $(SRC)/native/zjniutil.c $(SRC)/native/zjniutil.h
 
