@@ -20,7 +20,7 @@
 #include <alloca.h>
 #include <jni.h>
 
-#include "ProxyInfo.h"
+#include "com_zimbra_znative_ProxyInfo.h"
 
 #define JLS "Ljava/lang/String;"
 

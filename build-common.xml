@@ -269,7 +269,7 @@
 
     <target name="compile" depends="build-init,resolve,3rd-party-defines" description="Compiles from src/java into build/classes.">
         <mkdir dir="${build.classes.dir}" />
-        <javac destdir="${build.classes.dir}" debug="true" classpathref="class.path" target="${javac.target}" encoding="utf-8">
+        <javac destdir="${build.classes.dir}" debug="true" nativeHeaderDir="${build.dir}" classpathref="class.path" target="${javac.target}" encoding="utf-8">
             <src refid="all.java.path" />
         </javac>
     </target>

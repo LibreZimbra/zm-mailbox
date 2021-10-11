@@ -1,7 +1,6 @@
 <project name="zm-mailbox" default="all">
 
     <target name="all" depends="publish-local-all">
-        <ant dir="./native" target="generate-native-headers" inheritAll="true"/>
         <exec dir="./native" executable="make"          failonerror="true"/>
         <ant dir="./store"  target="war"                inheritAll="true"/>
         <ant dir="./store"  target="create-version-sql" inheritAll="true"/>
