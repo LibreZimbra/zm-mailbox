@@ -174,18 +174,7 @@
         <not><os family="windows"/></not>
     </condition>
 
-    <target name="require-version">
-      <fail message="Missing build version. use ant proper ZCS version like -Dzimbra.buildinfo.version=8.7.6_GA_1001">
-       <condition>
-         <not>
-           <isset property="zimbra.buildinfo.version"/>
-         </not>
-       </condition>
-      </fail>
-      <echo message="Using version ${zimbra.buildinfo.version}"/>
-    </target>
-
-    <target name="set-dev-version" depends="require-version,3rd-party-defines">
+    <target name="set-dev-version" depends="3rd-party-defines">
       <antcontrib:if>
         <not>
           <isset property="jar.file"/>
@@ -199,36 +188,6 @@
 
           <!-- Build version -->
           <tstamp/>
-          <antcontrib:propertyregex property="zimbra.buildinfo.majorversion"
-                                    input="${zimbra.buildinfo.version}"
-                                    regexp="([0-9]+)\.([0-9]+)\.([0-9]+)"
-                                    select="\1"
-                                    casesensitive="false" />
-
-          <antcontrib:propertyregex property="zimbra.buildinfo.minorversion"
-                                    input="${zimbra.buildinfo.version}"
-                                    regexp="([0-9]+)\.([0-9]+)\.([0-9]+)"
-                                    select="\2"
-                                    casesensitive="false" />
-
-          <antcontrib:propertyregex property="zimbra.buildinfo.microversion"
-                                    input="${zimbra.buildinfo.version}"
-                                    regexp="([0-9]+)\.([0-9]+)\.([0-9]+)"
-                                    select="\3"
-                                    casesensitive="false" />
-
-          <antcontrib:propertyregex property="zimbra.buildinfo.relclass"
-                                    defaultValue="GA"
-                                    input="${zimbra.buildinfo.version}"
-                                    regexp="([0-9]+)\.([0-9]+)\.([0-9]+)_([A-Z]+)"
-                                    select="\4"
-                                    casesensitive="false" />
-
-          <antcontrib:propertyregex property="zimbra.buildinfo.buildnum"
-                                    input="${zimbra.buildinfo.version}"
-                                    regexp="([0-9]+)\.([0-9]+)\.([0-9]+)_([A-Z]+)_([0-9]+)"
-                                    select="\5"
-                                    casesensitive="false" />
 
           <condition property="zimbra.buildinfo.relnum" value="0">
             <not><isset property="${zimbra.buildinfo.relnum}"/></not>
@@ -250,7 +209,7 @@
         <delete dir="${dist.dir}"/>
     </target>
 
-    <target name="build-init" depends="require-version">
+    <target name="build-init">
       <mkdir dir="${build.classes.dir}"/>
       <mkdir dir="${dist.dir}"/>
     </target>
