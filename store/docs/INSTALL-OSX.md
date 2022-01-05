@@ -120,7 +120,7 @@ $ sudo ln -s /Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre
 
 ````
 $ sudo visudo
-{username}	ALL=NOPASSWD:/opt/zimbra/libexec/zmslapd
+{username}	ALL=NOPASSWD:/opt/zimbra/common/libexec/slapd
 ````
 
 {username} is your local username. Be sure to insert a [TAB] between {username} and "ALL".

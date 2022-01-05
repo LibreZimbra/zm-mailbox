@@ -74,12 +74,12 @@ public class TestLdapConnectivity {
           edit /opt/zimbra/bin/ldap
           modify the line:
 
-          sudo /opt/zimbra/libexec/zmslapd -l LOCAL0 -4 -u `whoami` -h "ldap://:389/" \
+          sudo /opt/zimbra/common/libexec/slapd -l LOCAL0 -4 -u `whoami` -h "ldap://:389/" \
                         -f /opt/zimbra/conf/slapd.conf
 
           to:
 
-          sudo /opt/zimbra/libexec/zmslapd -l LOCAL0 -4 -u `whoami` -h "ldap://:389/ ldaps://:636/" \
+          sudo /opt/zimbra/common/slapd -l LOCAL0 -4 -u `whoami` -h "ldap://:389/ ldaps://:636/" \
                         -f /opt/zimbra/conf/slapd.conf
 
         StartTLS and ldaps cannot co-exist in production, because if ldap url contains ldaps,

@@ -161,7 +161,7 @@ $ sudo apt-get install ant
 
 18. $ sudo visudo
 
-  {username} ALL=NOPASSWD:/opt/zimbra/libexec/zmslapd
+  {username} ALL=NOPASSWD:/opt/zimbra/common/libexec/slapd
 
   * {username} is your local username and be sure to insert a [TAB] between {username} and "ALL".
 
