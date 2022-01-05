@@ -85,7 +85,6 @@ import com.zimbra.qa.unittest.prov.ldap.TestLdapProvServer;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapProvSignature;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapProvXMPPComponent;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapProvZimlet;
-import com.zimbra.qa.unittest.prov.ldap.TestLdapUpgrade;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapUtil;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapZLdapContext;
 import com.zimbra.qa.unittest.prov.ldap.TestLdapZLdapFilter;
@@ -468,7 +467,6 @@ public class TestLdap {
         classes.add(TestLdapProvXMPPComponent.class);
         classes.add(TestLdapProvZimlet.class);
         classes.add(TestLdapUtil.class);
-        classes.add(TestLdapUpgrade.class);
         classes.add(TestLdapZLdapContext.class);
         classes.add(TestLdapZLdapFilter.class);
         classes.add(TestLdapZMutableEntry.class);
