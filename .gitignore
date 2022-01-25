@@ -3,7 +3,7 @@
 .settings/
 .idea/
 build/
-bin/
+/bin/
 .DS_Store
 outgoing
 .metadata/

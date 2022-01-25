@@ -85,5 +85,9 @@ install:
 	ln -s zimbracommon.jar  $(INSTALL_DIR)/lib/jars/zm-common.jar
 	ln -s zimbra-native.jar $(INSTALL_DIR)/lib/jars/zm-native.jar
 
+	# bin scripts
+	$(call mk_install_dir,bin)
+	cp src/bin/* $(INSTALL_DIR)/bin
+
 clean:
 	rm -Rf build client/build common/build native/build soap/build store/build
