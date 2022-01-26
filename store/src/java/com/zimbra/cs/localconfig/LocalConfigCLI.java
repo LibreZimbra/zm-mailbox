@@ -117,7 +117,7 @@ public final class LocalConfigCLI {
     private void checkNotRoot(String option) {
         String username = System.getProperty("user.name");
         if ("root".equalsIgnoreCase(username)) {
-            error("cannot use " + option + " when running as root", null);
+            System.err.println("WARNING: should not use " + option + " when running as root");
         }
     }
 
