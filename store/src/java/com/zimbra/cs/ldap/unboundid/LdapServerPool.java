@@ -173,13 +173,17 @@ public class LdapServerPool {
         } else {
             Set<Pair<String, Integer>> hostsAndPorts = new LinkedHashSet<>();
             for (LDAPURL url : urls) {
-                InetAddress[] addrs = InetAddress.getAllByName(url.getHost());
-                if (addrs.length == 1) {
-                    hostsAndPorts.add(new Pair<String, Integer>(url.getHost(), url.getPort()));
-                } else {
-                    for (int i = 0; i < addrs.length; i++) {
-                        hostsAndPorts.add(new Pair<String, Integer>(addrs[i].getHostAddress(), url.getPort()));
+                try {
+                    InetAddress[] addrs = InetAddress.getAllByName(url.getHost());
+                    if (addrs.length == 1) {
+                        hostsAndPorts.add(new Pair<String, Integer>(url.getHost(), url.getPort()));
+                    } else {
+                        for (int i = 0; i < addrs.length; i++) {
+                            hostsAndPorts.add(new Pair<String, Integer>(addrs[i].getHostAddress(), url.getPort()));
+                        }
                     }
+                } catch (java.net.UnknownHostException ex) {
+                    hostsAndPorts.add(new Pair<String, Integer>(url.getHost(), url.getPort()));
                 }
             }
             String[] hostsStrs = new String[hostsAndPorts.size()];
