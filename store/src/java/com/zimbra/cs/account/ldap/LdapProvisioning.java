@@ -849,8 +849,9 @@ public class LdapProvisioning extends LdapProv implements CacheAwareProvisioning
                 } else {
                     return config;
                 }
+
             } catch (ServiceException e) {
-                throw ServiceException.FAILURE("unable to get config", e);
+                throw ServiceException.FAILURE("unable to get config (cn=config,cn=zimbra) from LDAP", e);
             }
         }
         return cachedGlobalConfig;
