@@ -557,7 +557,7 @@ public final class LC {
     public static final KnownKey sqlite_sync_mode = KnownKey.newKey("NORMAL");
 
     @Supported
-    public static final KnownKey mailboxd_directory = KnownKey.newKey("${zimbra_home}/mailboxd");
+    public static final KnownKey mailboxd_directory = KnownKey.newKey("${zimbra_home}/common/jetty_home");
 
     @Supported
     public static final KnownKey mailboxd_java_heap_size = KnownKey.newKey(null);
