@@ -550,12 +550,6 @@ public final class LC {
     public static final KnownKey cbpolicyd_log_mail = KnownKey.newKey("main");
     public static final KnownKey cbpolicyd_log_detail = KnownKey.newKey("modules");
 
-    public static final KnownKey sqlite_shared_cache_enabled = KnownKey.newKey(false);
-    public static final KnownKey sqlite_cache_size = KnownKey.newKey(500);
-    public static final KnownKey sqlite_journal_mode = KnownKey.newKey("PERSIST");
-    public static final KnownKey sqlite_page_size = KnownKey.newKey(4096);
-    public static final KnownKey sqlite_sync_mode = KnownKey.newKey("NORMAL");
-
     @Supported
     public static final KnownKey mailboxd_directory = KnownKey.newKey("${zimbra_home}/common/jetty_home");
 
