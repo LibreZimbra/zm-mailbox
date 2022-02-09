@@ -22,6 +22,7 @@ Depends: zimbra-mbox-war, zimbra-mbox-conf, zimbra-common-core-jar,
   zimbra-common-mbox-conf, zimbra-common-mbox-db,
   zimbra-common-mbox-conf-msgs, zimbra-common-mbox-conf-rights,
   zimbra-common-mbox-conf-attrs, zimbra-common-mbox-docs,
+  zimbra-mbox-store-libs
 
 Package: zimbra-mbox-war
 Section: mail
